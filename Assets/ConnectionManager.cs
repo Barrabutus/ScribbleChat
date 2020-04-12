@@ -45,6 +45,7 @@ public class ConnectionManager : MonoBehaviourPunCallbacks
         chatManager.ConnectToChatServer();
         chatManager.SetUsername(username);
         lobbyManager.SetUsernameLabels();
+        PhotonNetwork.AutomaticallySyncScene = true;
         instance = this;
     }
 
@@ -54,5 +55,7 @@ public class ConnectionManager : MonoBehaviourPunCallbacks
       //  roomConnectionStateLabel.text = "Disconnected from room server...";
 
     }
+
+    
 
 }
