@@ -796,7 +796,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1460,7 +1460,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 77405416}
   m_HandleRect: {fileID: 77405415}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1552,7 +1552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1580,7 +1580,7 @@ MonoBehaviour:
     pulvinar. Aenean laoreet commodo suscipit. Nunc blandit venenatis nisi et dignissim.
     Integer non dolor laoreet, sagittis massa quis, consequat orci.
 
-    
+
 
     Proin
     feugiat elit sit amet tristique dictum. Class aptent taciti sociosqu ad litora
@@ -1593,10 +1593,10 @@ MonoBehaviour:
     venenatis leo at nisl tincidunt, sit amet rutrum erat sollicitudin. Cras rutrum
     leo mauris. Sed ut venenatis libero, a bibendum nisl.
 
-    
 
-    Fusce pulvinar
-    risus at aliquet posuere. Aliquam erat volutpat. Ut mauris enim, viverra sollicitudin
+
+    Fusce pulvinar risus
+    at aliquet posuere. Aliquam erat volutpat. Ut mauris enim, viverra sollicitudin
     tempor nec, dapibus non elit. Sed sollicitudin tristique arcu, quis suscipit
     magna auctor gravida. Nulla facilisi. Integer in augue nisi. Suspendisse nisi
     enim, auctor sit amet enim vitae, ullamcorper tristique velit. Sed ac dui at
@@ -1605,16 +1605,16 @@ MonoBehaviour:
     Proin hendrerit convallis velit a varius. Nam volutpat rhoncus tempor. Etiam
     et accumsan ante, id dignissim urna.
 
-    
 
-    Etiam consequat purus vel metus
-    efficitur tristique. Maecenas interdum malesuada nisl non viverra. Duis in consectetur
+
+    Etiam consequat purus vel metus efficitur
+    tristique. Maecenas interdum malesuada nisl non viverra. Duis in consectetur
     mauris, et fringilla ante. Nam vitae vulputate diam. Fusce sed massa dui. Donec
     vel augue ut eros auctor convallis non ut ipsum. Maecenas feugiat sollicitudin
     leo eu tristique. Vivamus tincidunt lectus non nisl pellentesque, at auctor nisl
     dictum. Aenean mi ex, hendrerit id tincidunt quis, vehicula in lectus.
 
-    
+
 
     Sed
     et tempus diam, vitae feugiat mi. Nunc eu dignissim orci. Nulla sed libero non
@@ -1629,29 +1629,29 @@ MonoBehaviour:
     libero convallis, ut ultrices purus molestie. Morbi nibh erat, porta a rhoncus
     a, congue vel ligula.
 
-    
 
-    Nunc gravida ornare mi dignissim aliquet.
-    Donec nec porta ex, in suscipit urna. Praesent venenatis orci libero. Duis ac
-    lectus tristique, gravida dolor nec, fringilla elit. Cras in purus ac elit pellentesque
+
+    Nunc gravida ornare mi dignissim aliquet. Donec
+    nec porta ex, in suscipit urna. Praesent venenatis orci libero. Duis ac lectus
+    tristique, gravida dolor nec, fringilla elit. Cras in purus ac elit pellentesque
     vulputate. Vivamus sit amet massa at purus consectetur tempor non eu nisl. Integer
     porta erat ac molestie dignissim. Aenean in elementum erat, nec vehicula risus.
     Sed vel tortor interdum, tempus est eu, rutrum tellus. Phasellus porta egestas
     molestie. Vivamus eget tincidunt mi. Sed eleifend sagittis diam, ut aliquam velit
     dapibus nec. Mauris pretium in magna a tempor.
 
-    
 
-    Maecenas eros nunc,
-    cursus ac quam ac, laoreet vulputate risus. Quisque in odio nec lacus tincidunt
-    tristique. Phasellus rhoncus purus ut blandit mollis. Aliquam elementum nulla
-    eget neque porttitor condimentum. Morbi sit amet erat nec augue porttitor tempor.
-    Morbi vitae tortor augue. Duis a nisl nec purus posuere eleifend fermentum sed
-    augue. Nulla ullamcorper condimentum odio at pharetra. Vestibulum blandit ut
-    diam quis suscipit. Class aptent taciti sociosqu ad litora torquent per conubia
-    nostra, per inceptos himenaeos. Sed porttitor risus in velit sodales pharetra.
 
-    
+    Maecenas eros nunc, cursus
+    ac quam ac, laoreet vulputate risus. Quisque in odio nec lacus tincidunt tristique.
+    Phasellus rhoncus purus ut blandit mollis. Aliquam elementum nulla eget neque
+    porttitor condimentum. Morbi sit amet erat nec augue porttitor tempor. Morbi
+    vitae tortor augue. Duis a nisl nec purus posuere eleifend fermentum sed augue.
+    Nulla ullamcorper condimentum odio at pharetra. Vestibulum blandit ut diam quis
+    suscipit. Class aptent taciti sociosqu ad litora torquent per conubia nostra,
+    per inceptos himenaeos. Sed porttitor risus in velit sodales pharetra.
+
+
 
     Nullam
     eleifend nibh vitae arcu mattis ultrices. Curabitur vehicula, nulla nec semper
@@ -1665,7 +1665,7 @@ MonoBehaviour:
     dapibus. Sed maximus lorem leo, non pulvinar tellus tempor et. Class aptent taciti
     sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
 
-    
+
 
     Mauris
     pellentesque erat at arcu molestie, sed lacinia nulla eleifend. Nulla feugiat,
@@ -1676,10 +1676,10 @@ MonoBehaviour:
     eu, sagittis risus. Vivamus eget odio at massa convallis ultrices quis quis felis.
     Aliquam a tortor urna.
 
-    
 
-    Aliquam erat volutpat. Duis non nisl nulla.
-    Quisque non est laoreet mauris placerat mattis et ut felis. Morbi quis quam aliquam,
+
+    Aliquam erat volutpat. Duis non nisl nulla. Quisque
+    non est laoreet mauris placerat mattis et ut felis. Morbi quis quam aliquam,
     molestie dui sit amet, feugiat ante. Donec eleifend neque nunc, sit amet aliquam
     justo tristique sit amet. Morbi auctor nunc sit amet turpis posuere, et luctus
     nunc maximus. Quisque ac leo non velit convallis suscipit semper malesuada elit.
@@ -1690,10 +1690,10 @@ MonoBehaviour:
     finibus. Sed malesuada nibh et dolor aliquam, et posuere ligula auctor. Morbi
     nec diam faucibus, suscipit ipsum id, maximus nisl.
 
-    
 
-    Generated 10
-    paragraphs, 986 words, 6558 bytes of Lorem Ipsum'
+
+    Generated 10 paragraphs,
+    986 words, 6558 bytes of Lorem Ipsum'
 --- !u!222 &765170239
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2018,7 +2018,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2345,7 +2345,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1421167245}
   m_LocalRotation: {x: -0, y: -0.043471813, z: -0, w: 0.9990547}
-  m_LocalPosition: {x: 0, y: 0, z: 1.6}
+  m_LocalPosition: {x: 0, y: 0, z: 1.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 517579912}
@@ -2353,7 +2353,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -4.9830003, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 20, y: 0}
+  m_AnchoredPosition: {x: 17.1, y: -4.8}
   m_SizeDelta: {x: 203.34, y: 30}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1421167247
@@ -2369,7 +2369,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2637,7 +2637,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2952,7 +2952,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1284325738}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.08230982
+  m_Size: 0.07610254
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

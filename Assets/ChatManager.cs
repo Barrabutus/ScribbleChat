@@ -84,10 +84,24 @@ public class ChatManager : MonoBehaviour, IChatClientListener
         {
              string message = username + " says " + userChatInputField.text;
              client.PublishMessage(_Channel.Global.ToString(), message);
+             userChatInputField.text = "";
 
         }else{
             userChatInputField.text = "";
         }
+    }
+
+    public void SendMessageToChannel(string msg)
+    {
+        
+        client.PublishMessage(_Channel.Global.ToString(), msg);
+
+
+    }
+
+    public void UserUnsubFromChannel()
+    {
+        client.Unsubscribe(new string[] {_Channel.Global.ToString()});
     }
 
  
@@ -151,6 +165,7 @@ public class ChatManager : MonoBehaviour, IChatClientListener
 
     public void OnUnsubscribed(string[] channels)
     {
+        client.PublishMessage(_Channel.Global.ToString(), username + " has left the global channel");
     }
 
     public void OnUserSubscribed(string channel, string user)

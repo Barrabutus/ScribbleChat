@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
 
-public class LobbyManager : MonoBehaviour
+public class LobbyManager : MonoBehaviourPunCallbacks
 {
     public Text[] usernameLabels;
     public Text lobbyConnectionStateLabel;
@@ -33,5 +33,12 @@ public class LobbyManager : MonoBehaviour
     {
         
         
+    }
+    public override void OnLeftLobby()
+    {
+
+        ChatManager chatManager = GameObject.Find("ChatManager").GetComponent<ChatManager>();
+        chatManager.SendMessage(PhotonNetwork.NickName + " has left the room");
+
     }
 }
