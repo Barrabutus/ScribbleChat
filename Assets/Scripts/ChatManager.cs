@@ -21,6 +21,9 @@ public class ChatManager : MonoBehaviour, IChatClientListener
     public List<Player> players = new List<Player>();
     public Player[] players__;
 
+    public List<ChatClient> clients = new List<ChatClient>();
+    
+
 
 
 
@@ -76,6 +79,13 @@ public class ChatManager : MonoBehaviour, IChatClientListener
 
 
 
+    }
+
+    public List<ChatClient> GetClients()
+    {
+
+
+        return clients;
     }
 
     public void OnClickSendMessageToChannel()
@@ -160,7 +170,9 @@ public class ChatManager : MonoBehaviour, IChatClientListener
     public void OnSubscribed(string[] channels, bool[] results)
     {
         client.PublishMessage(_Channel.Global.ToString(), username + " has joined the global channel");
-        userListManager.addNewClient(client, username);
+        clients.Add(client);
+
+        
     }
 
     public void OnUnsubscribed(string[] channels)

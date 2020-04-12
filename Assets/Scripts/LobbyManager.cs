@@ -46,8 +46,8 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         {
             inputRoomName.text = "No More than 15 characters for a room name";
         }else{
-            PhotonNetwork.CreateRoom(inputRoomName.text, new RoomOptions {MaxPlayers = 2, EmptyRoomTtl = 3000});
-        }
+                PhotonNetwork.CreateRoom(inputRoomName.text, new RoomOptions { MaxPlayers = 2, EmptyRoomTtl = 3000});
+            }
     }
 
    public override void OnCreatedRoom()
@@ -128,6 +128,17 @@ public class LobbyManager : MonoBehaviourPunCallbacks
             currentRoomList.Add(info.Name);
         }
     }
+
+    public override void OnCreateRoomFailed(short returnCode, string message)
+    {
+
+        //We fail to create a room because our user is already in the HIDDEN room. 
+
+
+
+
+    }
+
 
 
 

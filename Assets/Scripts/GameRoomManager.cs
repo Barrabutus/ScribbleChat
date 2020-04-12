@@ -15,11 +15,8 @@ public class GameRoomManager : MonoBehaviourPunCallbacks
         private int numPlayers;
         public List<int> currentRoomPlayers =new List<int>();
         private static GameRoomManager instance;
-
         private ConnectionManager connectionManager;
 
-        public bool isRoomFull;
-        public GameObject rdyBtn;
         //public _LobbyManager lobbyManager;
         //public _ChatManager chatManager;
 
@@ -67,7 +64,7 @@ public class GameRoomManager : MonoBehaviourPunCallbacks
                         {
                             GameObject listing = Instantiate(userPrefab, userPanel.transform);
                             listing.name = p.Value.ActorNumber.ToString();
-                            Text btnText = listing.GetComponent<Text>();     
+                            Text btnText = listing.GetComponentInChildren<Text>();     
                             btnText.text = p.Value.NickName;
                             listing.transform.SetParent(userPanel.transform);
                              //Add to the list of current players in the room.

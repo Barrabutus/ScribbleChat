@@ -20,6 +20,9 @@ public class ConnectionManager : MonoBehaviourPunCallbacks
     public Text roomConnectionStateLabel;
     private string username;
 
+    //TEST ROOM
+    public string hiddenRoom = "HIDDEN";
+
  
     void Start()
     {
@@ -48,7 +51,10 @@ public class ConnectionManager : MonoBehaviourPunCallbacks
         chatManager.SetUsername(username);
         lobbyManager.SetUsernameLabels();
         PhotonNetwork.AutomaticallySyncScene = true;
+       
         instance = this;
+
+        //PhotonNetwork.JoinOrCreateRoom(hiddenRoom, new RoomOptions{MaxPlayers = 20, IsVisible = false}, null);
     }
 
     public override void OnDisconnected(DisconnectCause cause)
