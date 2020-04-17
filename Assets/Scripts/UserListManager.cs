@@ -8,7 +8,6 @@ using Photon.Realtime;
 
 public class UserListManager : MonoBehaviourPunCallbacks
 {
-
     public string hiddenUserRoom = "HIDDEN";
     public int numPlayers;
     public List<int> currentRoomPlayers =new List<int>();
@@ -16,7 +15,4 @@ public class UserListManager : MonoBehaviourPunCallbacks
     public GameObject userPrefab;
     public ConnectionManager connectionManager;
   
-
-
-
 }

@@ -6,6 +6,7 @@ using Photon.Realtime;
 using UnityEngine.UI;
 using Photon.Chat;
 using ExitGames.Client.Photon;
+using System;
 
 
 public class GameRoomManager : MonoBehaviourPunCallbacks
@@ -16,6 +17,7 @@ public class GameRoomManager : MonoBehaviourPunCallbacks
         public List<int> currentRoomPlayers =new List<int>();
         private static GameRoomManager instance;
         private ConnectionManager connectionManager;
+        private WebCommunication webCommunication;
 
         //public _LobbyManager lobbyManager;
         //public _ChatManager chatManager;
@@ -23,6 +25,7 @@ public class GameRoomManager : MonoBehaviourPunCallbacks
         private void Start() {
             instance = this;
             connectionManager = GameObject.Find("ConnectionManager").GetComponent<ConnectionManager>();
+            webCommunication = connectionManager.GetComponent<WebCommunication>();
             
 
         }
@@ -102,12 +105,14 @@ public class GameRoomManager : MonoBehaviourPunCallbacks
 
     public void OnClickLeaveRoom()
     {
+
         PhotonNetwork.LeaveRoom();
     }
 
     public override void OnLeftRoom()
     {
-
+        int id = Convert.ToInt16(connectionManager.UserId);
+        webCommunication.UpdateUserStatus(id, 1);
         PhotonNetwork.LoadLevel("LobbyScene");
 
     }
