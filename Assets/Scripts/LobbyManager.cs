@@ -24,7 +24,10 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public Transform SQLUserListPanel;
     public string response;
     public WebCommunication webCommunication;
-    public ConnectionManager connectionManager; 
+    public ConnectionManager connectionManager;
+    public UserDatabase database; 
+
+    public GameRoomManager gameRoomManager;
     //FORMATTING ROOM NAMES TO BE ALL UPPERS
     public void OnEnterInput()
     {
@@ -35,6 +38,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         inputRoomName.onValidateInput += delegate (string input, int charIndex, char addedChar) { return SetToUpper(addedChar); };
         webCommunication = GameObject.Find("ConnectionManager").GetComponent<WebCommunication>();
         connectionManager = GameObject.Find("ConnectionManager").GetComponent<ConnectionManager>();
+        database = GameObject.Find("UserDatabase").GetComponent<UserDatabase>();
 
     }
     public char SetToUpper(char c) {
@@ -89,6 +93,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         ///USER LEAVES LOBBY REMOVED FROM USERS FILE:::::
         int id = Convert.ToInt16(connectionManager.UserId);
         webCommunication.UpdateUserStatus(id,0);
+
 
 
 
@@ -194,10 +199,10 @@ public class LobbyManager : MonoBehaviourPunCallbacks
                         {
                             //Update the lobby users list to reflect the new state.
                             btnObject.interactable = false;
-                            Debug.Log("Updating " + user.name + " state to FALSE");
+                            //Debug.Log("Updating " + user.name + " state to FALSE");
                         }else{
                             btnObject.interactable = true;
-                            Debug.Log("Updating " + user.name + " state to TRUE");
+                            //Debug.Log("Updating " + user.name + " state to TRUE");
                         }
                    
 
@@ -207,9 +212,22 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
                 }
 
+                //Update the userDatabase.
+                
+                Debug.Log("UPDATING THE USERBASE");
+                database.setData(connectionManager.lobbyUsers);
                 connectionManager.response = "";
             }
         
+    }
+
+
+    public override void OnLeftRoom()
+    {
+
+
+        Debug.Log("USER HAS REJOINED THE LOBBY...");
+
     }
 
 

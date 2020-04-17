@@ -14,6 +14,7 @@ public class ChatManager : MonoBehaviour, IChatClientListener
     public Text chatboxWindow;
     public Text chatConnectionStateLabel;
     public UserListManager userListManager;
+    public int userId;
 
     [Header("User Chat Input Controls")]
     public InputField userChatInputField;
@@ -21,6 +22,7 @@ public class ChatManager : MonoBehaviour, IChatClientListener
     public List<Player> players = new List<Player>();
     public Player[] players__;
 
+    public bool isConnected;
     public List<ChatClient> clients = new List<ChatClient>();
     
 
@@ -37,7 +39,7 @@ public class ChatManager : MonoBehaviour, IChatClientListener
 
     public void GetConnectedUsers()
     {
-        Debug.Log(PhotonNetwork.PlayerList.Length);
+       // Debug.Log(PhotonNetwork.PlayerList.Length);
         int numplayers = PhotonNetwork.CountOfPlayers;
 
         for(int x = 0; x < numplayers; x++)
@@ -75,7 +77,12 @@ public class ChatManager : MonoBehaviour, IChatClientListener
         Photon.Chat.AuthenticationValues authValues = new Photon.Chat.AuthenticationValues();
        // authValues.UserId = username;
         authValues.AuthType = Photon.Chat.CustomAuthenticationType.None;
-        client.Connect(PhotonNetwork.PhotonServerSettings.AppSettings.AppIdChat,"0", authValues);
+        if(client.Connect(PhotonNetwork.PhotonServerSettings.AppSettings.AppIdChat,"0", authValues))
+        {
+          //  Debug.Log("CONNECTED TO CHAT");
+            client.Subscribe(_Channel.Global.ToString());
+            isConnected = true;
+        }
 
 
 
@@ -103,11 +110,13 @@ public class ChatManager : MonoBehaviour, IChatClientListener
 
     public void SendMessageToChannel(string msg)
     {
-        
+      //  Debug.Log("RECIEVED MESSGAE");
+      //  Debug.Log("MSG is "+msg);
         client.PublishMessage(_Channel.Global.ToString(), msg);
 
 
     }
+
 
     public void UserUnsubFromChannel()
     {
@@ -130,7 +139,7 @@ public class ChatManager : MonoBehaviour, IChatClientListener
     public void OnConnected()
     {
       
-      Debug.Log("Welcome " + username);
+     // Debug.Log("Welcome " + username);
       client.Subscribe(new string[] {_Channel.Global.ToString()});
       chatConnectionStateLabel.text = "Connected to chat.";
       GetConnectedUsers();
@@ -169,7 +178,7 @@ public class ChatManager : MonoBehaviour, IChatClientListener
 
     public void OnSubscribed(string[] channels, bool[] results)
     {
-        client.PublishMessage(_Channel.Global.ToString(), username + " has joined the global channel");
+        //client.PublishMessage(_Channel.Global.ToString(), username + " has joined the global channel");
         clients.Add(client);
 
         

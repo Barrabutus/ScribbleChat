@@ -23,48 +23,62 @@ public class ConnectionManager : MonoBehaviourPunCallbacks
     public WebCommunication wwwComms;
     public string UserId;
     public string[] splitResponse;
-
     public string[] users;
     public string response;
     public List<LobbyUser> lobbyUsers = new List<LobbyUser>();
-
-
+    public UserDatabase userDatabase;
     void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
+        
+        //DontDestroyOnLoad(this.gameObject);
         chatManager = GameObject.Find("ChatManager").GetComponent<ChatManager>();
         //roomManager = GameObject.Find("RoomManager").GetComponent<RoomManager>();
         lobbyManager = GameObject.Find("LobbyManager").GetComponent<LobbyManager>();
+        userDatabase = GameObject.Find("UserDatabase").GetComponent<UserDatabase>();
         wwwComms = GetComponent<WebCommunication>();
+        if(!PhotonNetwork.IsConnected)
+        {
         PhotonNetwork.ConnectUsingSettings();
+        username = namePrefix+UnityEngine.Random.Range(0000,99999);
+        PhotonNetwork.NickName = username;
+        PhotonNetwork.AutomaticallySyncScene = true;
+        chatManager.ConnectToChatServer(); 
+
+        }
     }
  
     public override void OnConnectedToMaster()
     {
-        wwwComms.GetAllRows();
-        Debug.Log("Joined Master....Going to lobby");
-        PhotonNetwork.JoinLobby();
-        roomConnectionStateLabel.text = "Connected to room!";
+
+           // Debug.Log("Joined Master....Going to lobby");    
+            //roomConnectionStateLabel.text = "Connected to room!";
+            chatManager.SetUsername(username);
+
+            if(lobbyManager != null)
+            {
+                lobbyManager.SetUsernameLabels();
+            }    
+            wwwComms.GetAllRows();
+            wwwComms.AddUser(PhotonNetwork.NickName, 0, 1);
+            PhotonNetwork.JoinLobby();
+        
     }
  
     public override void OnJoinedLobby()
     {
-        //Debug.Log("We have joined the lobby getting list of rooms....");
-        //Append a random number to a name so we can identify the user in the room scene.
-        username = namePrefix+UnityEngine.Random.Range(0000,99999);
-        PhotonNetwork.NickName = username;
-       // Debug.Log("Welcome " + username);
-        chatManager.ConnectToChatServer();
-        chatManager.SetUsername(username);
-        lobbyManager.SetUsernameLabels();
-        PhotonNetwork.AutomaticallySyncScene = true;
-        wwwComms.AddUser(PhotonNetwork.NickName, 0, 1);
-        //StartCoroutine(SplitResponsefromWWW());
         StartCoroutine(GetUsersFromDb()); 
-       // lobbyManager.UpdateUsers();
+        //chatManager.SubscribeToGlobalChannel();
+        if(chatManager.isConnected)
+        {
+            
+            chatManager.SendMessageToChannel(username + " has joined the lobby...");
 
+        }else{
 
-        //PhotonNetwork.JoinOrCreateRoom(hiddenRoom, new RoomOptions{MaxPlayers = 20, IsVisible = false}, null);
+            Debug.Log("CHAT IS NOT CONNECTED");
+
+        
+        }
     }
 
     public override void OnDisconnected(DisconnectCause cause)
@@ -95,11 +109,11 @@ public class ConnectionManager : MonoBehaviourPunCallbacks
                                 //if the lobbyuser exists then skip them....
                                 if(!isDuplicateUser(playername))
                                 {
-                                     LobbyUser newUser = new LobbyUser();
+                                    LobbyUser newUser = new LobbyUser();
                                     newUser.id = Convert.ToInt16(details[0]);
                                     newUser.name = details[1];
                                     newUser.state = Convert.ToInt16(details[2]);
-                                    Debug.Log(newUser.name + " Does not exist in LobbyUSers...");
+                                    //Debug.Log(newUser.name + " Does not exist in LobbyUSers...");
                                     lobbyUsers.Add(newUser);
 
                                 }else{
@@ -132,7 +146,8 @@ public class ConnectionManager : MonoBehaviourPunCallbacks
                 }
                 
                 
-                Debug.Log("SHOULD QUERY FOR UPDATES....");
+               // Debug.Log("SHOULD QUERY FOR UPDATES....");
+                
                 lobbyManager.UpdateUsers();
                 wwwComms.GetAllRows();
                 

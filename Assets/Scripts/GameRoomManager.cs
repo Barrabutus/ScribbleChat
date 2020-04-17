@@ -16,25 +16,29 @@ public class GameRoomManager : MonoBehaviourPunCallbacks
         private int numPlayers;
         public List<int> currentRoomPlayers =new List<int>();
         private static GameRoomManager instance;
-        private ConnectionManager connectionManager;
+       // private ConnectionManager connectionManager;
+       public List<int> userIds = new List<int>();
         private WebCommunication webCommunication;
+
+        public List<LobbyUser> currentPlayers = new List<LobbyUser>();
 
         //public _LobbyManager lobbyManager;
         //public _ChatManager chatManager;
+        public UserDatabase userDatabase;
 
         private void Start() {
             instance = this;
-            connectionManager = GameObject.Find("ConnectionManager").GetComponent<ConnectionManager>();
-            webCommunication = connectionManager.GetComponent<WebCommunication>();
+          //  connectionManager = GameObject.Find("ConnectionManager").GetComponent<ConnectionManager>();
+          // webCommunication = GameObject.Find("ConnectionManager").GetComponent<WebCommunication>();
+          userDatabase = GameObject.Find("UserDatabase").GetComponent<UserDatabase>();
             
 
         }
         
-     
-
-        public override void OnJoinedRoom()
+         public override void OnJoinedRoom()
         {
-            Debug.Log("User " + PhotonNetwork.NickName + " has joined the room...");
+            
+           // Debug.Log("User " + PhotonNetwork.NickName + " has joined the room...");
             StartCoroutine(RunUserListUpdate());
             //numPlayers  = PhotonNetwork.CurrentRoom.PlayerCount; 
            // if(numPlayers == 1) {
@@ -43,7 +47,16 @@ public class GameRoomManager : MonoBehaviourPunCallbacks
           //  }
            // chatManager.SetChatClientName(PhotonNetwork.NickName);
            // chatManager.client.PublishMessage(PhotonNetwork.CurrentRoom.Name, PhotonNetwork.NickName + " joined the room");
-            
+            foreach(LobbyUser user in userDatabase.getUsers())
+            {
+
+                if(user.name == PhotonNetwork.NickName)
+                {
+                    userIds.Add(user.id);
+                }
+
+
+            }
 
         
         }
@@ -82,12 +95,12 @@ public class GameRoomManager : MonoBehaviourPunCallbacks
 
         
     public override void OnDisconnected(DisconnectCause cause){
-        Debug.Log(PhotonNetwork.NickName + " has disconnected. " + cause.ToString());
+        //Debug.Log(PhotonNetwork.NickName + " has disconnected. " + cause.ToString());
     }
 
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
-        Debug.Log(otherPlayer.NickName + " has left, disconnected or closed the game");
+       // Debug.Log(otherPlayer.NickName + " has left, disconnected or closed the game");
         //Stop the routine because we are modifying the list. 
         StopCoroutine(RunUserListUpdate());
         foreach(int x in currentRoomPlayers)
@@ -111,8 +124,21 @@ public class GameRoomManager : MonoBehaviourPunCallbacks
 
     public override void OnLeftRoom()
     {
-        int id = Convert.ToInt16(connectionManager.UserId);
-        webCommunication.UpdateUserStatus(id, 1);
+      
+         foreach(LobbyUser user in userDatabase.getUsers())
+            {
+
+                if(user.name == PhotonNetwork.NickName)
+                {
+                    int id = Convert.ToInt16(user.id);
+                    webCommunication.UpdateUserStatus(id, 1);
+                    userIds.Add(user.id);
+                }
+
+
+            }
+
+
         PhotonNetwork.LoadLevel("LobbyScene");
 
     }

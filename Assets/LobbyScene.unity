@@ -671,6 +671,7 @@ MonoBehaviour:
   users: []
   response: 
   lobbyUsers: []
+  userDatabase: {fileID: 0}
 --- !u!114 &226125461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3167,6 +3168,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1284325737}
   m_CullTransparentMesh: 0
+--- !u!1 &1387962205
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1387962207}
+  - component: {fileID: 1387962206}
+  m_Layer: 0
+  m_Name: UserDatabase
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1387962206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1387962205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 504fb2884d8f0974baa653c8fb8fc0d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  users: []
+--- !u!4 &1387962207
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1387962205}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 770.6961, y: 134.74228, z: -674.5854}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1416799364
 GameObject:
   m_ObjectHideFlags: 0
@@ -3685,6 +3730,8 @@ MonoBehaviour:
   response: 
   webCommunication: {fileID: 0}
   connectionManager: {fileID: 0}
+  database: {fileID: 0}
+  gameRoomManager: {fileID: 0}
 --- !u!1 &1544692078
 GameObject:
   m_ObjectHideFlags: 0
@@ -3949,6 +3996,9 @@ MonoBehaviour:
   userPrefab: {fileID: 16657577314596893, guid: 820f211e1512b694885fd1bb34d5b846,
     type: 3}
   currentRoomPlayers: 
+  userIds: 
+  currentPlayers: []
+  userDatabase: {fileID: 0}
 --- !u!114 &1568054982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4140,7 +4190,9 @@ MonoBehaviour:
   chatboxWindow: {fileID: 765170238}
   chatConnectionStateLabel: {fileID: 1607697409}
   userListManager: {fileID: 1637230194}
+  userId: 0
   userChatInputField: {fileID: 1813408641}
+  isConnected: 0
 --- !u!114 &1637230194
 MonoBehaviour:
   m_ObjectHideFlags: 0

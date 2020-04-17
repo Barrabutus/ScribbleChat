@@ -84,11 +84,11 @@ public class WebCommunication : MonoBehaviour {
         yield return www.SendWebRequest();
  
         if(www.isNetworkError || www.isHttpError) {
-            Debug.Log(www.error);
+           // Debug.Log(www.error);
         }
         else {
             // Show results as text
-            Debug.Log(www.downloadHandler.text);
+           // Debug.Log(www.downloadHandler.text);
             connectionManager.response = www.downloadHandler.text;
             // Or retrieve results as binary data
            
@@ -112,10 +112,10 @@ public class WebCommunication : MonoBehaviour {
 
             if(www.isNetworkError || www.isHttpError)
             {
-                Debug.Log("Unable to Delete data...");
+              //  Debug.Log("Unable to Delete data...");
             }else{
                 
-               Debug.Log(www.downloadHandler.text); 
+              // Debug.Log(www.downloadHandler.text); 
             }
     
     }
@@ -137,7 +137,7 @@ public class WebCommunication : MonoBehaviour {
                 //Debug.Log("NEW USER ADDED TO DATABASE");
             }else{
                 
-               Debug.Log(www.downloadHandler.text); 
+             //  Debug.Log(www.downloadHandler.text); 
                 connectionManager.UserId = www.downloadHandler.text;
 
             }
@@ -156,11 +156,11 @@ public class WebCommunication : MonoBehaviour {
         yield return www.SendWebRequest();
             if(www.isNetworkError || www.isHttpError)
             {
-                Debug.Log("Unable to update user ..." +rowId);
+            //    Debug.Log("Unable to update user ..." +rowId);
 
             }else{
                 
-               Debug.Log(www.downloadHandler.text); 
+            //   Debug.Log(www.downloadHandler.text); 
             }
 
 
@@ -177,7 +177,7 @@ public class WebCommunication : MonoBehaviour {
         yield return www.SendWebRequest();
             if(www.isNetworkError || www.isHttpError)
             {
-                Debug.Log("Unable to get lobby users......");
+             //   Debug.Log("Unable to get lobby users......");
 
             }else{
                 
