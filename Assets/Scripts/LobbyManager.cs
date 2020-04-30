@@ -114,7 +114,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
         //Did the OnRoomListUpdate actually occur??
-        //Debug.Log("FIRED");
+        Debug.Log("FIRED");
         foreach(RoomInfo info in roomList)
         {
             //If the room does not exist we create a button for it.
@@ -214,7 +214,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
 
                 //Update the userDatabase.
                 
-                Debug.Log("UPDATING THE USERBASE");
+               // Debug.Log("UPDATING THE USERBASE");
                 database.setData(connectionManager.lobbyUsers);
                 connectionManager.response = "";
             }
@@ -226,7 +226,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
     {
 
 
-        Debug.Log("USER HAS REJOINED THE LOBBY...");
+        //Debug.Log("USER HAS REJOINED THE LOBBY...");
 
     }
 

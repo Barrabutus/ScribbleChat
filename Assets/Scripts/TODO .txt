@@ -1,0 +1,15 @@
+TODO : 
+Update the lobbymanager with the users lists change the users list to reflect all updates. 
+instead of iterating users we need to iterate the currentusers after populating it the first time.
+**Completed.
+
+Fix room list update.
+
+
+Fix Game User lists 
+
+Add Game Chat window. 
+
+Start Game Manager functionality 
+
+Add game mechanics and functions. 

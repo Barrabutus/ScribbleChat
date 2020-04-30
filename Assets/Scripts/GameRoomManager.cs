@@ -21,6 +21,7 @@ public class GameRoomManager : MonoBehaviourPunCallbacks
         private WebCommunication webCommunication;
 
         public List<LobbyUser> currentPlayers = new List<LobbyUser>();
+        public SQLManager manager;
 
         //public _LobbyManager lobbyManager;
         //public _ChatManager chatManager;
@@ -30,7 +31,8 @@ public class GameRoomManager : MonoBehaviourPunCallbacks
             instance = this;
           //  connectionManager = GameObject.Find("ConnectionManager").GetComponent<ConnectionManager>();
           // webCommunication = GameObject.Find("ConnectionManager").GetComponent<WebCommunication>();
-          userDatabase = GameObject.Find("UserDatabase").GetComponent<UserDatabase>();
+          //userDatabase = GameObject.Find("UserDatabase").GetComponent<UserDatabase>();
+          manager = GameObject.Find("Manager").GetComponent<SQLManager>();
             
 
         }
@@ -127,15 +129,12 @@ public class GameRoomManager : MonoBehaviourPunCallbacks
       
          foreach(LobbyUser user in userDatabase.getUsers())
             {
-
                 if(user.name == PhotonNetwork.NickName)
                 {
                     int id = Convert.ToInt16(user.id);
-                    webCommunication.UpdateUserStatus(id, 1);
+                    manager.UpdateUserStatus(id, 1);
                     userIds.Add(user.id);
                 }
-
-
             }
 
 

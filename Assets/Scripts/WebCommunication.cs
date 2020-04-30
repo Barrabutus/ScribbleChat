@@ -21,7 +21,6 @@ public class WebCommunication : MonoBehaviour {
         GETALL,
         GET,
         UPDATE,
-
         LOBBY,
     }
     public DBCommand command;
